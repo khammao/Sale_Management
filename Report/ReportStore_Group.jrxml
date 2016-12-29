@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportStore_Group" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[Select * from LOCType]]>
+	</queryString>
+	<field name="LOCTypeID" class="java.lang.Integer"/>
+	<field name="LOCTypeName" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="52" y="4" width="434" height="33"/>
+				<textElement>
+					<font fontName="Saysettha OT" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ລາຍງານກຸ່ມສາຂາ ໃນບໍລິສັດ Import-Export co.,ltd]]></text>
+			</staticText>
+			<line>
+				<reportElement x="136" y="43" width="258" height="1"/>
+				<graphicElement>
+					<pen lineWidth="3.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="34" splitType="Stretch">
+			<staticText>
+				<reportElement x="124" y="5" width="80" height="23"/>
+				<textElement>
+					<font fontName="Saysettha OT" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ລຳດັບ(Nrb#)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="5" width="216" height="23"/>
+				<textElement>
+					<font fontName="Saysettha OT" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ກຸ່ມສາຂາ(Group Store)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="57" y="3" width="429" height="1"/>
+			</line>
+			<line>
+				<reportElement x="57" y="31" width="429" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement x="124" y="4" width="80" height="23"/>
+				<textElement textAlignment="Center">
+					<font fontName="Saysettha OT" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LOCTypeID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="209" y="4" width="216" height="23"/>
+				<textElement>
+					<font fontName="Saysettha OT" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LOCTypeName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="12" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="33" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="2" width="555" height="24"/>
+				<textElement textAlignment="Center">
+					<font fontName="Lao Unicode" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="9" splitType="Stretch"/>
+	</summary>
+</jasperReport>

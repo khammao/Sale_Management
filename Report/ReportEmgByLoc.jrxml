@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportEmgByLoc" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[Select * from EmppByDept]]>
+	</queryString>
+	<field name="EDPID" class="java.lang.Integer"/>
+	<field name="EIDNbr" class="java.lang.Integer"/>
+	<field name="FName" class="java.lang.String"/>
+	<field name="FNameEng" class="java.lang.String"/>
+	<field name="LocName" class="java.lang.String"/>
+	<field name="Title" class="java.lang.String"/>
+	<field name="Dept" class="java.lang.String"/>
+	<field name="Address" class="java.lang.String"/>
+	<field name="AddressEng" class="java.lang.String"/>
+	<field name="MPhone" class="java.lang.String"/>
+	<field name="HPhone" class="java.lang.String"/>
+	<field name="Sex" class="java.lang.String"/>
+	<field name="BDay" class="java.sql.Date"/>
+	<field name="StartDate" class="java.sql.Date"/>
+	<field name="TermDate" class="java.sql.Date"/>
+	<field name="EEmail" class="java.lang.String"/>
+	<group name="DeptName">
+		<groupExpression><![CDATA[$F{Dept}]]></groupExpression>
+		<groupHeader>
+			<band height="64">
+				<staticText>
+					<reportElement x="16" y="8" width="94" height="23"/>
+					<textElement>
+						<font fontName="Saysettha OT" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ພະແນກ(Dept):]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="110" y="8" width="231" height="23"/>
+					<textElement>
+						<font fontName="Saysettha OT" size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Dept}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="4" y="36" width="42" height="21"/>
+					<textElement>
+						<font fontName="Saysettha OT" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ໝາຍເລກ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="47" y="36" width="120" height="21"/>
+					<textElement>
+						<font fontName="Saysettha OT" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ຊື່ພະນັກງານ(Name)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="167" y="36" width="133" height="21"/>
+					<textElement>
+						<font fontName="Saysettha OT" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Employee name]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="618" y="36" width="182" height="21"/>
+					<textElement>
+						<font fontName="Saysettha OT" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ທີ່ຢູ່ຂອງພະນັກງານ(Address)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="414" y="36" width="76" height="21"/>
+					<textElement>
+						<font fontName="Saysettha OT" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ເບີໂທ(Phone)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="491" y="36" width="49" height="21"/>
+					<textElement>
+						<font fontName="Saysettha OT" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ເພດ(Sex)]]></text>
+				</staticText>
+				<line>
+					<reportElement x="1" y="5" width="801" height="1"/>
+				</line>
+				<line>
+					<reportElement x="0" y="32" width="801" height="1"/>
+				</line>
+				<line>
+					<reportElement x="1" y="59" width="800" height="1"/>
+				</line>
+				<staticText>
+					<reportElement x="541" y="36" width="76" height="20"/>
+					<textElement>
+						<font fontName="Saysettha OT" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ເຂົ້າວຽກ(Start)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="302" y="36" width="110" height="20"/>
+					<textElement>
+						<font fontName="Saysettha OT" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ຕຳແໜ່ງ(Title)]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="46" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="35"/>
+				<textElement textAlignment="Center">
+					<font fontName="Saysettha OT" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ລາຍງານພະນັກງານທີ່ຍັງເຮັດວຽກໃນບໍລິ LDC Import-Export Co.,LTD]]></text>
+			</staticText>
+			<line>
+				<reportElement x="221" y="39" width="354" height="1"/>
+				<graphicElement>
+					<pen lineWidth="3.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="5" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="6" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="4" y="0" width="42" height="21"/>
+				<textElement>
+					<font fontName="Saysettha OT" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EIDNbr}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="167" y="0" width="133" height="21"/>
+				<textElement>
+					<font fontName="Saysettha OT" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FNameEng}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="618" y="0" width="182" height="21"/>
+				<textElement>
+					<font fontName="Saysettha OT" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Address}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="414" y="0" width="76" height="21"/>
+				<textElement>
+					<font fontName="Saysettha OT" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MPhone}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="491" y="0" width="49" height="21"/>
+				<textElement>
+					<font fontName="Saysettha OT" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Sex}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy/MM/dd">
+				<reportElement x="541" y="0" width="76" height="20"/>
+				<textElement>
+					<font fontName="Saysettha OT"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{StartDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="302" y="1" width="110" height="20"/>
+				<textElement>
+					<font fontName="Saysettha OT"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Title}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="47" y="1" width="120" height="21"/>
+				<textElement>
+					<font fontName="Saysettha OT" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="5" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="800" height="21"/>
+				<textElement textAlignment="Center">
+					<font fontName="Phetsarath OT" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

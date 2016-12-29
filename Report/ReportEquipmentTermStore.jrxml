@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportEquipmentActive" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.callouts" value="##Wed Apr 20 09:24:51 ICT 2016"/>
+	<parameter name="Store" class="java.lang.String"/>
+	<parameter name="Cate" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT  dbo.IV_Equipment.Barcode, dbo.IV_Equipment.ProductName, dbo.IV_Brands.BrandName, dbo.IV_OperatingSystem.OSName, dbo.CATType.CDesc, dbo.IV_Equipment.IPAddress, dbo.IV_Equipment.SerialNbr,
+dbo.IV_Equipment.Color, dbo.IV_Equipment.Size, dbo.IV_Unit.UnitName, dbo.IV_Equipment.Desc1, dbo.IV_Equipment.Desc2, dbo.IV_Equipment.Picture, dbo.IV_Equipment.Status, dbo.Employee.FNameEng,
+dbo.Location.LOCName, dbo.Department.DName, dbo.IV_Equipment.EntryDate, dbo.IV_Equipment.EXP
+FROM dbo.IV_Equipment INNER JOIN
+dbo.IV_Brands ON dbo.IV_Equipment.BrandID = dbo.IV_Brands.BrandID INNER JOIN
+dbo.IV_OperatingSystem ON dbo.IV_Equipment.OSID = dbo.IV_OperatingSystem.OSID INNER JOIN
+dbo.CATType ON dbo.IV_Equipment.CATID = dbo.CATType.CATID INNER JOIN
+dbo.IV_Unit ON dbo.IV_Equipment.UnitID = dbo.IV_Unit.UnitID INNER JOIN
+dbo.Employee ON dbo.IV_Equipment.EID = dbo.Employee.EID INNER JOIN
+dbo.Department ON dbo.Employee.DPID = dbo.Department.DPID INNER JOIN
+dbo.Location ON dbo.Employee.LocID = dbo.Location.LOCID
+where dbo.IV_Equipment.Status=N'ໃຊ້ງານບໍ່ໄດ້' and dbo.Location.LOCName=$P{Store} and dbo.CATType.CDesc=$P{Cate}]]>
+	</queryString>
+	<field name="Barcode" class="java.lang.String"/>
+	<field name="ProductName" class="java.lang.String"/>
+	<field name="BrandName" class="java.lang.String"/>
+	<field name="OSName" class="java.lang.String"/>
+	<field name="CDesc" class="java.lang.String"/>
+	<field name="IPAddress" class="java.lang.String"/>
+	<field name="SerialNbr" class="java.lang.String"/>
+	<field name="Color" class="java.lang.String"/>
+	<field name="Size" class="java.lang.String"/>
+	<field name="UnitName" class="java.lang.String"/>
+	<field name="Desc1" class="java.lang.String"/>
+	<field name="Desc2" class="java.lang.String"/>
+	<field name="Picture" class="java.lang.String"/>
+	<field name="Status" class="java.lang.String"/>
+	<field name="FNameEng" class="java.lang.String"/>
+	<field name="LOCName" class="java.lang.String"/>
+	<field name="DName" class="java.lang.String"/>
+	<field name="EntryDate" class="java.sql.Date"/>
+	<field name="EXP" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="46" splitType="Stretch">
+			<staticText>
+				<reportElement x="161" y="3" width="242" height="29"/>
+				<textElement>
+					<font fontName="Lao Unicode" size="20" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[ອຸປະກອນ IT ທີ່ໃຊ້ງານບໍ່ໄດ້]]></text>
+			</staticText>
+			<image>
+				<reportElement x="7" y="2" width="53" height="42"/>
+				<imageExpression><![CDATA["D:\\Java\\Java_Project\\src\\icon\\LDC_Import-Export Logo.jpg"]]></imageExpression>
+			</image>
+			<textField pattern="yyyy.MMMMM.dd GGG hh:mm aaa">
+				<reportElement x="406" y="24" width="143" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="207" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="9" y="6" width="537" height="197"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dashed" lineColor="#FF33FF"/>
+				</graphicElement>
+			</rectangle>
+			<image>
+				<reportElement x="18" y="10" width="154" height="141"/>
+				<imageExpression><![CDATA[$F{Picture}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="308" y="8" width="152" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lao Unicode" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Barcode}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="215" y="8" width="88" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lao Unicode" size="10"/>
+				</textElement>
+				<text><![CDATA[ເລກບາຣໂຄດ:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="308" y="24" width="152" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lao Unicode" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ProductName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="215" y="24" width="88" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lao Unicode" size="10"/>
+				</textElement>
+				<text><![CDATA[ຊື່ອຸປະກອນ₭:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="308" y="40" width="152" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lao Unicode" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BrandName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="215" y="40" width="88" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lao Unicode" size="10"/>
+				</textElement>
+				<text><![CDATA[ຍີ່ຫໍ້:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="308" y="56" width="152" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lao Unicode" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{OSName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="215" y="56" width="88" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lao Unicode" size="10"/>
+				</textElement>
+				<text><![CDATA[ລະບົບປະຕິດບັດການ:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="308" y="72" width="152" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lao Unicode" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CDesc}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="215" y="72" width="88" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lao Unicode" size="10"/>
+				</textElement>
+				<text><![CDATA[ປະເພດ:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="308" y="88" width="152" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lao Unicode" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{IPAddress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="215" y="88" width="88" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lao Unicode" size="10"/>
+				</textElement>
+				<text><![CDATA[IPAddress]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="308" y="104" width="152" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lao Unicode" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SerialNbr}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="215" y="104" width="88" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lao Unicode" size="10"/>
+				</textElement>
+				<text><![CDATA[SerialNbr]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="215" y="120" width="88" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lao Unicode"/>
+				</textElement>
+				<text><![CDATA[ພະນັກງານ:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="308" y="120" width="152" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lao Unicode"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FNameEng}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="215" y="136" width="88" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lao Unicode"/>
+				</textElement>
+				<text><![CDATA[ພະແນກ:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="308" y="136" width="152" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lao Unicode"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="18" y="154" width="88" height="15"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Lao Unicode"/>
+				</textElement>
+				<text><![CDATA[ລາຍລະອຽດ1:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="18" y="172" width="184" height="30"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Lao Unicode"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Desc1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="215" y="154" width="88" height="15"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Lao Unicode"/>
+				</textElement>
+				<text><![CDATA[ລາຍລະອຽດ2:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="215" y="171" width="245" height="30"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Lao Unicode"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Desc2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="3" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
